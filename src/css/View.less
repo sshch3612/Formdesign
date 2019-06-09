@@ -1,0 +1,101 @@
+@minWidth: 12px;
+.Formview {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.Formview-contain {
+  width: 100%;
+  height: 100%;
+  .component-node {
+    box-sizing: content-box;
+    i {
+      display: none;
+      position: absolute;
+      background-color: transparent;
+    }
+    .left {
+      width: @minWidth;
+      top: 0;
+      right: left;
+      height: 100%;
+      cursor: w-resize;
+    }
+    .right {
+      width: @minWidth;
+      top: 0;
+      right: 0;
+      height: 100%;
+      cursor: e-resize;
+    }
+    .top {
+      width: 100%;
+      top: 0;
+      left:0;
+      height: @minWidth;
+      cursor: n-resize;
+    }
+    .bottom {
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      height: @minWidth;
+      cursor: s-resize;
+    }
+    .remove{
+      position: absolute;
+      display: none;
+      right:0;
+      top:0;
+      height: 18px;
+      width:18px;
+      border-radius: 50%;
+      background-color: rgba(0,0,0,.5);
+      overflow: hidden;
+      transform: rotate(45deg);
+      z-index: 888;
+      cursor: pointer;
+      &::after{
+        content: '';
+        height: 1px;
+        width:18px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate3d(-50%,-50%,0);
+        background-color: #fff;
+      }
+      &::before{
+        content: '';
+        height: 18px;
+        width:1px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate3d(-50%,-50%,0);
+        background-color: #fff;
+      }
+    }
+  }
+  .active {
+    border: 1px dashed;
+    border-color: rgb(156, 189, 218);
+    cursor: move;
+    .left,
+    .right,
+    .top,
+    .bottom {
+      display: block;
+    }
+    .remove{
+      display: block;
+    }
+  }
+}
+
+#Frame-selected{
+  position: absolute;
+  background-color: rgba(0,0,0,.1);
+  border:1px dashed #999999;
+}
